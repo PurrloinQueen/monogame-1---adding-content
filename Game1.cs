@@ -9,6 +9,8 @@ namespace monogame_1___adding_content
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
+        Texture2D dinoTexture;
+
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -21,6 +23,9 @@ namespace monogame_1___adding_content
             // TODO: Add your initialization logic here
             _graphics.PreferredBackBufferWidth = 800;
             _graphics.PreferredBackBufferHeight = 500;
+            _graphics.ApplyChanges();
+
+            this.Window.Title = "Dino Jumpscare";
 
             base.Initialize();
         }
@@ -30,6 +35,7 @@ namespace monogame_1___adding_content
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            dinoTexture = Content.Load<Texture2D>("dino");
         }
 
         protected override void Update(GameTime gameTime)
@@ -44,9 +50,14 @@ namespace monogame_1___adding_content
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.MediumPurple);
 
             // TODO: Add your drawing code here
+            _spriteBatch.Begin();
+
+            _spriteBatch.Draw(dinoTexture, new Vector2(250, 100), Color.White);
+
+            _spriteBatch.End();
 
             base.Draw(gameTime);
         }
