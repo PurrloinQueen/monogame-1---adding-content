@@ -9,7 +9,7 @@ namespace monogame_1___adding_content
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
-        Texture2D dinoTexture;
+        Texture2D dinoTexture, birdTexture, birdTextureTwo, turtleTexture;
 
         public Game1()
         {
@@ -36,6 +36,9 @@ namespace monogame_1___adding_content
 
             // TODO: use this.Content to load your game content here
             dinoTexture = Content.Load<Texture2D>("dino");
+            birdTexture = Content.Load<Texture2D>("bird");
+            birdTextureTwo = Content.Load<Texture2D>("bird2");
+            turtleTexture = Content.Load<Texture2D>("turtle");
         }
 
         protected override void Update(GameTime gameTime)
@@ -56,6 +59,9 @@ namespace monogame_1___adding_content
             _spriteBatch.Begin();
 
             _spriteBatch.Draw(dinoTexture, new Vector2(250, 100), Color.White);
+            _spriteBatch.Draw(birdTexture, new Vector2(100, 100), Color.White);
+            _spriteBatch.Draw(birdTextureTwo, new Vector2(500, 10), Color.White);
+            _spriteBatch.Draw(turtleTexture, new Vector2(300, 250), Color.White);
 
             _spriteBatch.End();
 
