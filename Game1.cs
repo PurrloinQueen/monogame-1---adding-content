@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 
 namespace monogame_1___adding_content
 {
@@ -9,7 +10,10 @@ namespace monogame_1___adding_content
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
-        Texture2D dinoTexture, birdTexture, birdTextureTwo, turtleTexture;
+        Texture2D dinoTexture, birdTexture, birdTextureTwo, turtleTexture, magpieTexture;
+        Random generator = new Random();
+        int beep, boop;
+        Vector2 pleaseworkohmygod;
 
         public Game1()
         {
@@ -24,6 +28,9 @@ namespace monogame_1___adding_content
             _graphics.PreferredBackBufferWidth = 800;
             _graphics.PreferredBackBufferHeight = 500;
             _graphics.ApplyChanges();
+            beep = generator.Next(50, 250);
+            boop = generator.Next(50, 250);
+            pleaseworkohmygod = new Vector2(beep, boop);
 
             this.Window.Title = "Dino Jumpscare";
 
@@ -39,6 +46,7 @@ namespace monogame_1___adding_content
             birdTexture = Content.Load<Texture2D>("bird");
             birdTextureTwo = Content.Load<Texture2D>("bird2");
             turtleTexture = Content.Load<Texture2D>("turtle");
+            magpieTexture = Content.Load<Texture2D>("halocenepixil");
         }
 
         protected override void Update(GameTime gameTime)
@@ -62,6 +70,7 @@ namespace monogame_1___adding_content
             _spriteBatch.Draw(birdTexture, new Vector2(100, 100), Color.White);
             _spriteBatch.Draw(birdTextureTwo, new Vector2(500, 10), Color.White);
             _spriteBatch.Draw(turtleTexture, new Vector2(300, 250), Color.White);
+            _spriteBatch.Draw(magpieTexture, pleaseworkohmygod, Color.White);
 
             _spriteBatch.End();
 
