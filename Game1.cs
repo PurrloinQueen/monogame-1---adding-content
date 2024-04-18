@@ -32,7 +32,7 @@ namespace monogame_1___adding_content
             boop = generator.Next(50, 250);
             pleaseworkohmygod = new Vector2(beep, boop);
 
-            this.Window.Title = "Dino Jumpscare";
+            this.Window.Title = "The Cohesive Image Is That I Gave Up";
 
             base.Initialize();
         }
